@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i, *p;
+        p=(int*)calloc(5 , sizeof(int));
+        if(p==NULL){
+            printf("Memoria insuficiente");
+        }
+        for(i=0;i<5;i++){
+            printf("\nDigite o valor %d: " , i+1);
+            scanf("%d" , &p[i]);
+        }
+        for(i=0;i<5;i++){
+            printf("\n%d" , p[i]);
+        }
+free(p);
+}
