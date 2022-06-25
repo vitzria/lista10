@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int n, x, i, multiplos=0;
+    int *p;
+    printf("Digite um valor n: ");
+    scanf("%d" , &n);
+    p=(int*)calloc(1,sizeof(int));
+        if(p==NULL){
+            printf("Memoria insuficiente");
+            exit(1);
+        }
+        for(i=0;i<n;i++){
+            printf("Digite o valor %d: " , i+1);
+            scanf("%d" , &p[i]);
+        }
+        printf("Digite um valor x: ");
+        scanf("%d" , &x);
+        for(i=0;i<n;i++){
+            if(p[i]%x==0){
+                multiplos++;
+                printf("\n%d eh um multiplo de %d" , p[i], x);
+            }
+        }
+        printf("\nexistem %d multiplos de %d" , multiplos, x);
+free(n);
+return 0;
+}
