@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct registro{
+    int matricula;
+    char sobrenome[50];
+    int nascimento;
+};
+int main()
+{
+    int n,i;
+        printf("Digite a quantidade de alunos: ");
+        scanf("%d" , &n);
+    struct registro *r;
+    r= (struct registro*)calloc(1,sizeof(struct registro));
+        if(r==NULL){
+            printf("Memoria insuficiente");
+            exit(1);
+        }
+    for(i=0;i<n;i++){
+        printf("\nMatricula %d: " , i+1);
+        scanf("%d" , &r[i].matricula);
+        printf("\nSobrenome %d: " , i+1);
+        scanf("%s" , &r[i].sobrenome);
+        printf("\nData de Nascimento %d: " , i+1);
+        scanf("%d" , &r[i].nascimento);
+    }
+    for(i=0;i<n;i++){
+        printf("\nMatricula %d: %d" , i+1, r[i].matricula);
+        printf("\nSobrenome %d: %d" , i+1, r[i].sobrenome);
+        printf("\nData de nascimento %d: %d" , i+1, r[i].nascimento);
+    }
+free(r);
+return 0;
+}
