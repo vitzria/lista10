@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int num, *vetor, i;
+        do{
+            printf("\nDigite o valor %d: " , i+1);
+            i++;
+            scanf("%d" , &vetor[i]);
+        } while(vetor[i]>=0);
+
+        num=i;
+
+        vetor=realloc(vetor,num*sizeof(int));
+            if(vetor==NULL){
+                printf("Memoria insuficiente");
+                exit(1);
+            }
+            else{
+                for(i=0;i<num;i++){
+                printf("\n%d" , vetor[i+1]);
+                }
+            }
+free(vetor);
+return 0;
+}
