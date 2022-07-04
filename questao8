@@ -10,6 +10,7 @@ struct produto{
 int main()
 {
     int n, i, maiorPreco=0, maiorQuantidade=0;
+    int indicePreco, indiceQuant;
     printf("Digite a quantidade de produtos: ");
     scanf("%d" , &n);
     struct produto *p;
@@ -28,12 +29,14 @@ int main()
         printf("\nQuantidade em estoque: ");
         scanf("%d" , &p[i].quantidade);
         if(p[i].quantidade>maiorQuantidade){
-            maiorQuantidade=p[i].nome;
+            indiceQuant=i;
+            maiorQuantidade=p[indiceQuant].nome;
         }
         printf("\nPreco de venda: ");
         scanf("%f" , &p[i].preco);
         if(p[i].preco>maiorPreco){
-            maiorPreco=p[i].nome;
+            indicePreco=i;
+            maiorPreco=p[indicePreco].nome;
         }
     }
     printf("\nProduto com maior preco: %s" , maiorPreco);
