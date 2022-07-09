@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct cidade{
+    char nome[50];
+    int posicao1;
+    int posicao2;
+};
+
+int main()
+{
+    struct cidade *c;
+    int n, i, j;
+    int distancia[n][n];
+    printf("Digite a quantidade de cidades: ");
+    scanf("%d" , &n);
+        for(i=0;i<n;i++){
+            printf("\nCIDADE %d" , i+1);
+            printf("\nNome da cidade: ");
+            scanf("%s" , &c[i].nome);
+            printf("\nCoordenada x: ");
+            scanf("%d" , &c[i].posicao1);
+            printf("\nCoordenada y: ");
+            scanf("%d" , &c[i].posicao2);
+        }
+
+        for(i=0;i<n;i++){
+            for(j=0;j<n;j++){
+               distancia[i][j]=(c[i].posicao1+c[i].posicao2)-(c[j].posicao1+c[j].posicao2);
+            }
+        }
+        for(i=0;i<n;i++){
+            for(j=0;j<n;j++){
+                printf("\t%d" , distancia[i][j]);
+            }
+        }
+return 0;
+}
