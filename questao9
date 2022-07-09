@@ -1,42 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
-int funcao(int **m, int l, int c){
-int i, j, valor;
-    printf("\nDigite um valor: ");
-    scanf("%d" , &valor);
+int funcao(int **m, int l, int c, int valor){
+int i, j;
     for(i=0;i<l;i++){
         for(j=0;j<c;j++){
            if(m[i][j]==valor){
                 return 1;
            }
-           else{
-                return 0;
-           }
         }
     }
+return 0;
 }
 
 int main()
 {
-    int **m, l, c, i, j;
+    int **m, l, c, i, j, valor;
         printf("\nDigite a quantidade de linhas da matriz: ");
         scanf("%d" , &l);
         printf("\nDigite a quantidade de colunas da matriz: ");
         scanf("%d" , &c);
 
             m=(int**)calloc(l,sizeof(int*));
+                if(m==NULL){
+                    printf("Memoria insuficiente!");
+                    exit(1);
+                }
             for(i=0;i<l;i++){
                 m[i]=(int*)calloc(c,sizeof(int));
+                    if(m[i]==NULL){
+                    printf("Memoria insuficiente!");
+                    exit(1);
+                    }
                 for(j=0;j<c;j++){
                     printf("\nDigite o valor %d %d: " , i+1, j+1);
                     scanf("%d" , &m[i][j]);
                 }
             }
-            if(m==NULL){
-            printf("Memoria insuficiente!");
-            exit(1);
-        }
+    printf("\nDigite um valor: ");
+    scanf("%d" , &valor);
 
-    funcao(m, l, c);
+    funcao(m, l, c, valor);
     return 0;
 }
+
