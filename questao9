@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 int funcao(int **m, int l, int c, int valor){
-int i, j;
+int i, j, count;
     for(i=0;i<l;i++){
         for(j=0;j<c;j++){
            if(m[i][j]==valor){
-                exit(1);
+                count=1;
            }
         }
     }
-return 0;
+return count;
 }
 
 int main()
