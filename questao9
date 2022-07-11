@@ -5,7 +5,7 @@ int i, j;
     for(i=0;i<l;i++){
         for(j=0;j<c;j++){
            if(m[i][j]==valor){
-                return 1;
+                exit(1);
            }
         }
     }
