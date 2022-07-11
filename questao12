@@ -16,9 +16,9 @@ char nome[50];
 float x;
 float y;
 };
-int calculaDistancia(int **diferenca, int n, struct cidade *c){
+void calculaDistancia(int **diferenca, int n, struct cidade *c){
 int i, j;
-    diferenca=(int**)malloc(n*sizeof(int*));
+diferenca=(int**)malloc(n*sizeof(int*));
         if(diferenca==NULL){
         printf("\nMemoria insuficiente");
         exit(1);
@@ -33,7 +33,6 @@ int i, j;
             diferenca[i][j]=sqrt(pow((c[i].x-c[j].x),2)-pow((c[i].y-c[j].y),2));
         }
     }
-return diferenca;
 }
 int main()
 {
@@ -52,10 +51,11 @@ int main()
         scanf("%f" , &c[i].y);
     }
     if(n>=2){
-    diferenca=calculaDistancia(diferenca, n, c);
+
     printf("\nDIFERENCA\n");
         for(i=0;i<n;i++){
             for(j=0;j<n;j++){
+            calculaDistancia(diferenca, n, c);
             printf("\t%f" , diferenca[i][j]);
             }
         }
