@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 struct produto{
     int codigo;
     char nome[50];
@@ -30,17 +32,17 @@ int main()
         scanf("%d" , &p[i].quantidade);
         if(p[i].quantidade>maiorQuantidade){
             indiceQuant=i;
-            maiorQuantidade=p[indiceQuant].nome;
+            maiorQuantidade=p[indiceQuant].quantidade;
         }
         printf("\nPreco de venda: ");
         scanf("%f" , &p[i].preco);
         if(p[i].preco>maiorPreco){
             indicePreco=i;
-            maiorPreco=p[indicePreco].nome;
+            maiorPreco=p[indicePreco].preco;
         }
     }
-    printf("\nProduto com maior preco: %s" , maiorPreco);
-    printf("\nProduto com maior estoque: %s" , maiorQuantidade);
+    printf("\nProduto com maior preco: %s" , p[indicePreco].nome);
+    printf("\nProduto com maior estoque: %s" , p[indiceQuant].nome);
     }
 free(p);
 return 0;
